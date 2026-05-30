@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1750" viewBox="0 0 1400 1750" font-family="Segoe UI, Arial, sans-serif">
+  <!-- ===================== FUNDO ===================== -->
+  <rect width="1400" height="1750" fill="#f5f7fa"/>
+
+  <!-- ===================== TÍTULO ===================== -->
+  <rect x="0" y="0" width="1400" height="70" fill="#1f2933"/>
+  <text x="700" y="44" fill="#ffffff" font-size="30" font-weight="700" text-anchor="middle">Drone por Gestos — Esquema de Ligações</text>
+
+  <!-- ===================== LEGENDA DE CORES ===================== -->
+  <g transform="translate(40,85)">
+    <text x="0" y="0" font-size="16" font-weight="700" fill="#1f2933">Legenda dos fios:</text>
+    <rect x="130" y="-13" width="26" height="12" fill="#e63946"/><text x="162" y="-2" font-size="14" fill="#1f2933">+5V</text>
+    <rect x="215" y="-13" width="26" height="12" fill="#f3722c"/><text x="247" y="-2" font-size="14" fill="#1f2933">+3.3V</text>
+    <rect x="320" y="-13" width="26" height="12" fill="#212529"/><text x="352" y="-2" font-size="14" fill="#1f2933">GND</text>
+    <rect x="405" y="-13" width="26" height="12" fill="#1d4ed8"/><text x="437" y="-2" font-size="14" fill="#1f2933">SPI (rádio)</text>
+    <rect x="525" y="-13" width="26" height="12" fill="#2a9d8f"/><text x="557" y="-2" font-size="14" fill="#1f2933">I2C (sensor)</text>
+    <rect x="655" y="-13" width="26" height="12" fill="#9d4edd"/><text x="687" y="-2" font-size="14" fill="#1f2933">PWM (ESC)</text>
+    <rect x="775" y="-13" width="26" height="12" fill="#f4a261"/><text x="807" y="-2" font-size="14" fill="#1f2933">Bateria</text>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- =====================  PAINEL 1: LUVA  ====================== -->
+  <!-- ============================================================= -->
+  <g transform="translate(0,120)">
+    <rect x="20" y="0" width="1360" height="660" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="20" y="0" width="1360" height="44" rx="12" fill="#2563eb"/>
+    <rect x="20" y="22" width="1360" height="22" fill="#2563eb"/>
+    <text x="40" y="30" fill="#ffffff" font-size="22" font-weight="700">1 · LUVA (Transmissor) — lê o gesto e envia por rádio</text>
+
+    <!-- Arduino Nano (luva) -->
+    <g transform="translate(560,120)">
+      <rect x="0" y="0" width="280" height="420" rx="10" fill="#0b3d2e" stroke="#0a2e22" stroke-width="2"/>
+      <text x="140" y="34" fill="#9be7c4" font-size="20" font-weight="700" text-anchor="middle">Arduino Nano</text>
+      <text x="140" y="56" fill="#6fcfa3" font-size="13" text-anchor="middle">(ATmega328P)</text>
+      <!-- pinos esquerda -->
+      <g font-size="14" fill="#e8fff5">
+        <circle cx="14" cy="100" r="6" fill="#f3722c"/><text x="28" y="105">D13 / SCK</text>
+        <circle cx="14" cy="135" r="6" fill="#1d4ed8"/><text x="28" y="140">D12 / MISO</text>
+        <circle cx="14" cy="170" r="6" fill="#1d4ed8"/><text x="28" y="175">D11 / MOSI</text>
+        <circle cx="14" cy="205" r="6" fill="#1d4ed8"/><text x="28" y="210">D10 / CSN</text>
+        <circle cx="14" cy="240" r="6" fill="#1d4ed8"/><text x="28" y="245">D9 / CE</text>
+        <circle cx="14" cy="275" r="6" fill="#fbbf24"/><text x="28" y="280">D7 / LED</text>
+      </g>
+      <!-- pinos direita -->
+      <g font-size="14" fill="#e8fff5" text-anchor="end">
+        <text x="252" y="105">A4 / SDA</text><circle cx="266" cy="100" r="6" fill="#2a9d8f"/>
+        <text x="252" y="140">A5 / SCL</text><circle cx="266" cy="135" r="6" fill="#2a9d8f"/>
+        <text x="252" y="210">5V</text><circle cx="266" cy="205" r="6" fill="#e63946"/>
+        <text x="252" y="245">GND</text><circle cx="266" cy="240" r="6" fill="#212529"/>
+        <text x="252" y="280">3V3 (não usar)</text><circle cx="266" cy="275" r="6" fill="#94a3b8"/>
+      </g>
+    </g>
+
+    <!-- nRF24 (luva) -->
+    <g transform="translate(70,150)">
+      <rect x="0" y="0" width="200" height="170" rx="8" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+      <text x="100" y="28" fill="#93c5fd" font-size="17" font-weight="700" text-anchor="middle">nRF24L01+</text>
+      <g font-size="13" fill="#e2e8f0">
+        <text x="16" y="58">CE</text><circle cx="186" cy="53" r="5" fill="#1d4ed8"/>
+        <text x="16" y="83">CSN</text><circle cx="186" cy="78" r="5" fill="#1d4ed8"/>
+        <text x="16" y="108">SCK</text><circle cx="186" cy="103" r="5" fill="#f3722c"/>
+        <text x="16" y="133">MOSI / MISO</text><circle cx="186" cy="128" r="5" fill="#1d4ed8"/>
+        <text x="16" y="158">VCC 3.3V / GND</text><circle cx="186" cy="153" r="5" fill="#f3722c"/>
+      </g>
+      <text x="100" y="200" font-size="12" fill="#b91c1c" text-anchor="middle" font-weight="700">+ capacitor 10µF no VCC/GND</text>
+    </g>
+
+    <!-- MPU6050 (luva) -->
+    <g transform="translate(1130,150)">
+      <rect x="0" y="0" width="200" height="150" rx="8" fill="#312e81" stroke="#1e1b4b" stroke-width="2"/>
+      <text x="100" y="28" fill="#c7d2fe" font-size="17" font-weight="700" text-anchor="middle">MPU6050</text>
+      <text x="100" y="46" fill="#a5b4fc" font-size="12" text-anchor="middle">(GY-521)</text>
+      <g font-size="13" fill="#e2e8f0">
+        <circle cx="14" cy="78" r="5" fill="#2a9d8f"/><text x="26" y="83">SDA</text>
+        <circle cx="14" cy="103" r="5" fill="#2a9d8f"/><text x="26" y="108">SCL</text>
+        <circle cx="14" cy="128" r="5" fill="#e63946"/><text x="26" y="133">VCC 5V / GND</text>
+      </g>
+    </g>
+
+    <!-- LED (luva) -->
+    <g transform="translate(610,580)">
+      <rect x="0" y="0" width="180" height="56" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <text x="90" y="25" fill="#92400e" font-size="15" font-weight="700" text-anchor="middle">LED status</text>
+      <text x="90" y="44" fill="#92400e" font-size="12" text-anchor="middle">+ resistor 220Ω</text>
+    </g>
+
+    <!-- Alimentação luva -->
+    <g transform="translate(70,360)">
+      <rect x="0" y="0" width="380" height="180" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+      <text x="190" y="26" fill="#9a3412" font-size="16" font-weight="700" text-anchor="middle">Alimentação da Luva</text>
+      <text x="16" y="56" font-size="13" fill="#7c2d12">Bateria 1S LiPo 3.7V (ex.: 503035)</text>
+      <text x="16" y="80" font-size="13" fill="#7c2d12">   ↓</text>
+      <text x="16" y="104" font-size="13" fill="#7c2d12">Boost MT3608 → 5V  →  Nano (5V) + MPU</text>
+      <text x="16" y="128" font-size="13" fill="#7c2d12">AMS1117-3.3 → 3.3V  →  nRF24 (com cap.)</text>
+      <text x="16" y="156" font-size="13" fill="#7c2d12" font-weight="700">Todos os GND no mesmo ponto.</text>
+    </g>
+
+    <!-- ===== FIOS LUVA ===== -->
+    <!-- nRF24 -> Nano (SPI azul) -->
+    <path d="M256,203 H470 V253 H574" fill="none" stroke="#1d4ed8" stroke-width="3"/>   <!-- CE->D9 -->
+    <path d="M256,228 H455 V288 H574" fill="none" stroke="#1d4ed8" stroke-width="3"/>   <!-- CSN->D10 -->
+    <path d="M256,253 H440 V220 H574" fill="none" stroke="#f3722c" stroke-width="3"/>   <!-- SCK->D13 (3v3 line color reused = laranja? use blue) -->
+    <path d="M256,278 H425 V185 H574" fill="none" stroke="#1d4ed8" stroke-width="3"/>   <!-- MOSI/MISO->D11/D12 -->
+    <!-- MPU -> Nano (I2C verde) -->
+    <path d="M1144,228 H1010 V220 H826" fill="none" stroke="#2a9d8f" stroke-width="3"/> <!-- SDA->A4 -->
+    <path d="M1144,253 H1000 V255 H826" fill="none" stroke="#2a9d8f" stroke-width="3"/> <!-- SCL->A5 -->
+    <!-- MPU VCC -> Nano 5V vermelho -->
+    <path d="M1144,278 H980 V325 H826" fill="none" stroke="#e63946" stroke-width="3"/>
+    <!-- LED -> D7 -->
+    <path d="M610,600 H520 V395 H574" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <!-- Bateria -> Nano 5V -->
+    <path d="M450,420 H520 V325 H574" fill="none" stroke="#f4a261" stroke-width="3"/>
+
+    <text x="700" y="650" font-size="13" fill="#475569" text-anchor="middle" font-style="italic">SPI fixo: D11/D12/D13 só para o rádio · I2C fixo: A4/A5 para o MPU6050</text>
+  </g>
+
+  <!-- ============================================================= -->
+  <!-- =====================  PAINEL 2: DRONE  ===================== -->
+  <!-- ============================================================= -->
+  <g transform="translate(0,810)">
+    <rect x="20" y="0" width="1360" height="900" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="20" y="0" width="1360" height="44" rx="12" fill="#16a34a"/>
+    <rect x="20" y="22" width="1360" height="22" fill="#16a34a"/>
+    <text x="40" y="30" fill="#ffffff" font-size="22" font-weight="700">2 · DRONE (Receptor) — recebe e comanda os 4 motores</text>
+
+    <!-- Arduino Nano (drone) -->
+    <g transform="translate(560,120)">
+      <rect x="0" y="0" width="280" height="440" rx="10" fill="#0b3d2e" stroke="#0a2e22" stroke-width="2"/>
+      <text x="140" y="34" fill="#9be7c4" font-size="20" font-weight="700" text-anchor="middle">Arduino Nano</text>
+      <text x="140" y="56" fill="#6fcfa3" font-size="13" text-anchor="middle">(ATmega328P)</text>
+      <!-- pinos esquerda: motores -->
+      <g font-size="14" fill="#e8fff5">
+        <circle cx="14" cy="100" r="6" fill="#9d4edd"/><text x="28" y="105">D3 → ESC 1</text>
+        <circle cx="14" cy="135" r="6" fill="#9d4edd"/><text x="28" y="140">D4 → ESC 2</text>
+        <circle cx="14" cy="170" r="6" fill="#9d4edd"/><text x="28" y="175">D5 → ESC 3</text>
+        <circle cx="14" cy="205" r="6" fill="#9d4edd"/><text x="28" y="210">D6 → ESC 4</text>
+        <circle cx="14" cy="250" r="6" fill="#fbbf24"/><text x="28" y="255">D7 / LED</text>
+      </g>
+      <!-- pinos direita: rádio + power -->
+      <g font-size="14" fill="#e8fff5" text-anchor="end">
+        <text x="252" y="105">D9 / CE</text><circle cx="266" cy="100" r="6" fill="#1d4ed8"/>
+        <text x="252" y="140">D10 / CSN</text><circle cx="266" cy="135" r="6" fill="#1d4ed8"/>
+        <text x="252" y="175">D11 / MOSI</text><circle cx="266" cy="170" r="6" fill="#1d4ed8"/>
+        <text x="252" y="210">D12 / MISO</text><circle cx="266" cy="205" r="6" fill="#1d4ed8"/>
+        <text x="252" y="245">D13 / SCK</text><circle cx="266" cy="240" r="6" fill="#1d4ed8"/>
+        <text x="252" y="300">5V</text><circle cx="266" cy="295" r="6" fill="#e63946"/>
+        <text x="252" y="335">GND</text><circle cx="266" cy="330" r="6" fill="#212529"/>
+      </g>
+    </g>
+
+    <!-- nRF24 (drone) -->
+    <g transform="translate(1090,120)">
+      <rect x="0" y="0" width="240" height="170" rx="8" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+      <text x="120" y="28" fill="#93c5fd" font-size="17" font-weight="700" text-anchor="middle">nRF24L01+</text>
+      <g font-size="13" fill="#e2e8f0">
+        <circle cx="14" cy="58" r="5" fill="#1d4ed8"/><text x="26" y="63">CE / CSN</text>
+        <circle cx="14" cy="83" r="5" fill="#1d4ed8"/><text x="26" y="88">SCK / MOSI / MISO</text>
+        <circle cx="14" cy="113" r="5" fill="#f3722c"/><text x="26" y="118">VCC 3.3V (AMS1117)</text>
+        <circle cx="14" cy="138" r="5" fill="#212529"/><text x="26" y="143">GND</text>
+      </g>
+      <text x="120" y="165" font-size="11" fill="#fca5a5" text-anchor="middle" font-weight="700">+ capacitor 10µF</text>
+    </g>
+
+    <!-- LED (drone) -->
+    <g transform="translate(610,610)">
+      <rect x="0" y="0" width="180" height="50" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <text x="90" y="22" fill="#92400e" font-size="15" font-weight="700" text-anchor="middle">LED status</text>
+      <text x="90" y="40" fill="#92400e" font-size="11" text-anchor="middle">+ resistor 220Ω</text>
+    </g>
+
+    <!-- 4 ESCs + motores (esquerda) -->
+    <g transform="translate(70,120)">
+      <!-- ESC1 -->
+      <g transform="translate(0,0)">
+        <rect x="0" y="0" width="150" height="70" rx="6" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+        <text x="75" y="28" fill="#fde68a" font-size="15" font-weight="700" text-anchor="middle">ESC 1 (30A)</text>
+        <text x="75" y="50" fill="#cbd5e1" font-size="11" text-anchor="middle">sinal · GND · 5V(BEC)</text>
+        <circle cx="170" cy="35" r="35" fill="#475569" stroke="#1e293b" stroke-width="2"/>
+        <text x="170" y="40" fill="#fff" font-size="12" text-anchor="middle">M1 CW</text>
+      </g>
+      <!-- ESC2 -->
+      <g transform="translate(0,110)">
+        <rect x="0" y="0" width="150" height="70" rx="6" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+        <text x="75" y="28" fill="#fde68a" font-size="15" font-weight="700" text-anchor="middle">ESC 2 (30A)</text>
+        <text x="75" y="50" fill="#cbd5e1" font-size="11" text-anchor="middle">sinal · GND · (5V cortado)</text>
+        <circle cx="170" cy="35" r="35" fill="#475569" stroke="#1e293b" stroke-width="2"/>
+        <text x="170" y="40" fill="#fff" font-size="11" text-anchor="middle">M2 CCW</text>
+      </g>
+      <!-- ESC3 -->
+      <g transform="translate(0,220)">
+        <rect x="0" y="0" width="150" height="70" rx="6" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+        <text x="75" y="28" fill="#fde68a" font-size="15" font-weight="700" text-anchor="middle">ESC 3 (30A)</text>
+        <text x="75" y="50" fill="#cbd5e1" font-size="11" text-anchor="middle">sinal · GND · (5V cortado)</text>
+        <circle cx="170" cy="35" r="35" fill="#475569" stroke="#1e293b" stroke-width="2"/>
+        <text x="170" y="40" fill="#fff" font-size="12" text-anchor="middle">M3 CW</text>
+      </g>
+      <!-- ESC4 -->
+      <g transform="translate(0,330)">
+        <rect x="0" y="0" width="150" height="70" rx="6" fill="#334155" stroke="#1e293b" stroke-width="2"/>
+        <text x="75" y="28" fill="#fde68a" font-size="15" font-weight="700" text-anchor="middle">ESC 4 (30A)</text>
+        <text x="75" y="50" fill="#cbd5e1" font-size="11" text-anchor="middle">sinal · GND · (5V cortado)</text>
+        <circle cx="170" cy="35" r="35" fill="#475569" stroke="#1e293b" stroke-width="2"/>
+        <text x="170" y="40" fill="#fff" font-size="11" text-anchor="middle">M4 CCW</text>
+      </g>
+    </g>
+
+    <!-- Bateria de voo -->
+    <g transform="translate(70,580)">
+      <rect x="0" y="0" width="420" height="240" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+      <text x="210" y="28" fill="#9a3412" font-size="16" font-weight="700" text-anchor="middle">Alimentação do Drone</text>
+      <text x="16" y="58" font-size="13" fill="#7c2d12">Bateria 2S LiPo 7.4V (850–1300mAh, 25–30C)</text>
+      <text x="16" y="84" font-size="13" fill="#7c2d12">  • (+) e (−) → todos os 4 ESCs (fios grossos)</text>
+      <text x="16" y="110" font-size="13" fill="#7c2d12">  • UM BEC (5V) de UM ESC → 5V do Nano</text>
+      <text x="16" y="136" font-size="13" fill="#b91c1c" font-weight="700">  • CORTE o fio +5V dos outros 3 ESCs!</text>
+      <text x="16" y="162" font-size="13" fill="#7c2d12">  • AMS1117-3.3 (dos 5V) → nRF24</text>
+      <text x="16" y="188" font-size="13" fill="#7c2d12" font-weight="700">  • Todos os GND em estrela (mesmo ponto)</text>
+      <text x="16" y="220" font-size="12" fill="#7c2d12" font-style="italic">Os ESCs entregam corrente de pico dos motores.</text>
+    </g>
+
+    <!-- Diagrama X dos motores -->
+    <g transform="translate(960,330)">
+      <rect x="0" y="0" width="370" height="250" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="185" y="26" fill="#166534" font-size="15" font-weight="700" text-anchor="middle">Disposição "X" (visto de cima)</text>
+      <text x="185" y="50" fill="#166534" font-size="13" text-anchor="middle" font-weight="700">FRENTE</text>
+      <line x1="120" y1="80" x2="250" y2="200" stroke="#94a3b8" stroke-width="3"/>
+      <line x1="250" y1="80" x2="120" y2="200" stroke="#94a3b8" stroke-width="3"/>
+      <circle cx="120" cy="80" r="28" fill="#22c55e"/><text x="120" y="78" fill="#fff" font-size="12" text-anchor="middle">M1</text><text x="120" y="92" fill="#fff" font-size="10" text-anchor="middle">CW</text>
+      <circle cx="250" cy="80" r="28" fill="#3b82f6"/><text x="250" y="78" fill="#fff" font-size="12" text-anchor="middle">M2</text><text x="250" y="92" fill="#fff" font-size="10" text-anchor="middle">CCW</text>
+      <circle cx="250" cy="200" r="28" fill="#22c55e"/><text x="250" y="198" fill="#fff" font-size="12" text-anchor="middle">M3</text><text x="250" y="212" fill="#fff" font-size="10" text-anchor="middle">CW</text>
+      <circle cx="120" cy="200" r="28" fill="#3b82f6"/><text x="120" y="198" fill="#fff" font-size="12" text-anchor="middle">M4</text><text x="120" y="212" fill="#fff" font-size="10" text-anchor="middle">CCW</text>
+      <text x="185" y="245" fill="#166534" font-size="11" text-anchor="middle">M1/M3 horário · M2/M4 anti-horário</text>
+    </g>
+
+    <!-- ===== FIOS DRONE ===== -->
+    <!-- ESCs -> Nano PWM (roxo) -->
+    <path d="M290,155 H400 V220 H574" fill="none" stroke="#9d4edd" stroke-width="3"/>  <!-- ESC1->D3 -->
+    <path d="M290,265 H420 V255 H574" fill="none" stroke="#9d4edd" stroke-width="3"/>  <!-- ESC2->D4 -->
+    <path d="M290,375 H440 V290 H574" fill="none" stroke="#9d4edd" stroke-width="3"/>  <!-- ESC3->D5 -->
+    <path d="M290,485 H460 V325 H574" fill="none" stroke="#9d4edd" stroke-width="3"/>  <!-- ESC4->D6 -->
+    <!-- BEC 5V -> Nano 5V (vermelho) -->
+    <path d="M290,175 H360 V415 H574" fill="none" stroke="#e63946" stroke-width="3"/>
+    <!-- nRF24 -> Nano SPI (azul) -->
+    <path d="M1104,178 H1000 V220 H846" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+    <path d="M1104,203 H980 V255 H846" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+    <!-- nRF24 VCC 3.3 (laranja) -->
+    <path d="M1104,233 H960 V415 H846" fill="none" stroke="#f3722c" stroke-width="3"/>
+    <!-- nRF24 GND (preto) -->
+    <path d="M1104,258 H940 V450 H846" fill="none" stroke="#212529" stroke-width="3"/>
+    <!-- LED -> D7 -->
+    <path d="M610,635 H520 V370 H574" fill="none" stroke="#fbbf24" stroke-width="3"/>
+
+    <text x="700" y="700" font-size="14" fill="#b91c1c" text-anchor="middle" font-weight="700">⚠ Pino D11 agora é SÓ do rádio (SPI). Motor 4 foi para o D6 — conflito antigo resolvido.</text>
+    <text x="700" y="730" font-size="13" fill="#475569" text-anchor="middle" font-style="italic">Primeiro teste SEMPRE sem hélices. Failsafe corta os motores em 0,5s se o sinal cair.</text>
+  </g>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <text x="700" y="1742" font-size="13" fill="#64748b" text-anchor="middle">Projeto "Drone por Gestos" · Esquema gerado para o firmware atual (HandControl + Helicoptero) · Detalhes em HARDWARE.md</text>
+</svg>
